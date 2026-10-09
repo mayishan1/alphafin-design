@@ -1,0 +1,135 @@
+/* AlphaFin / Untitled-inspired compact theme. Local specimen, not app integration. */
+:root {
+  color-scheme: light;
+  --af-canvas: #fafafa;
+  --af-surface: #fff;
+  --af-overlay: #fff;
+  --af-ink: #181d27;
+  --af-text: #414651;
+  --af-muted: #717680;
+  --af-faint: #a4a7ae;
+  --af-hover: #f5f5f5;
+  --af-selected: #f0f1f3;
+  --af-line: #e9eaeb;
+  --af-input-line: #d5d7da;
+  --af-blue: #2e6de9;
+  --af-blue-hover: #2b61cb;
+  --af-blue-soft: rgb(46 109 233 / 6%);
+  --af-focus: rgb(46 109 233 / 24%);
+  --af-success: #257548;
+  --af-warning: #956516;
+  --af-danger: #c13f3f;
+  --af-font: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --af-ui-size: 13px;
+  --af-body-size: 14px;
+  --af-control-sm: 24px;
+  --af-control-md: 32px;
+  --af-field-height: 32px;
+  --af-radius-sm: 4px;
+  --af-radius-md: 8px;
+  --af-radius-control: 8px;
+  --af-radius-lg: 12px;
+  --af-radius-xl: 16px;
+  --af-space-1: 4px;
+  --af-space-2: 8px;
+  --af-space-3: 12px;
+  --af-space-4: 16px;
+  --af-space-6: 24px;
+  --af-space-8: 32px;
+  --af-header: 48px;
+  --af-shadow-menu: 0 2px 4px rgb(26 28 30 / 4%), 0 8px 24px rgb(26 28 30 / 10%);
+  --af-shadow-dialog: 0 2px 5px rgb(26 28 30 / 4%), 0 14px 36px rgb(26 28 30 / 12%), 0 40px 80px rgb(26 28 30 / 8%);
+  /* Surface depth is independent of control size and semantic state. */
+  --af-fill-control: none;
+  --af-fill-primary: none;
+  --af-shadow-control: 0 1px 2px rgb(10 13 18 / 5%), inset 0 -1px 0 rgb(10 13 18 / 4%);
+  --af-shadow-pressed: inset 0 1px 2px rgb(26 28 30 / 9%), 0 1px 0 rgb(255 255 255 / 70%);
+  --af-shadow-field: 0 1px 2px rgb(10 13 18 / 4%);
+  --af-shadow-surface: 0 1px 2px rgb(10 13 18 / 3%);
+  --af-shadow-primary: inset 0 -2px 0 rgb(10 13 18 / 10%), 0 1px 2px rgb(10 13 18 / 5%);
+  --af-fast: 120ms;
+  --af-enter: 160ms;
+  --af-ease: cubic-bezier(.2,.8,.2,1);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--af-text); background: var(--af-canvas); font: var(--af-body-size)/1.6 var(--af-font); -webkit-font-smoothing: antialiased; }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--af-blue); outline-offset: 3px; }
+button:disabled, input:disabled { cursor: not-allowed; opacity: .45; }
+.af-btn { min-height: var(--af-control-md); padding: 4px 10px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid var(--af-input-line); border-radius: var(--af-radius-control); background: var(--af-surface); box-shadow: var(--af-shadow-control); color: var(--af-text); font-size: var(--af-ui-size); font-weight: 500; line-height: 18px; transition: background var(--af-fast), border-color var(--af-fast), box-shadow var(--af-fast); }
+.af-btn:hover:not(:disabled) { background-color: var(--af-hover); border-color: #bfc3c9; }
+.af-btn:active:not(:disabled) { background: #f1f3f6; box-shadow: var(--af-shadow-pressed); }
+.af-btn.primary { color: white; background: var(--af-fill-primary) var(--af-blue); border-color: rgb(34 81 178 / 52%); box-shadow: var(--af-shadow-primary); }
+.af-btn.primary:hover:not(:disabled) { background-color: var(--af-blue-hover); border-color: rgb(34 81 178 / 65%); }
+.af-btn.primary:active:not(:disabled) { background: var(--af-blue-hover); box-shadow: inset 0 1px 3px rgb(15 43 102 / 25%); }
+.af-btn.quiet { background: transparent; border-color: transparent; box-shadow: none; }
+.af-btn.quiet:hover:not(:disabled), .af-btn.quiet:active:not(:disabled) { border-color: transparent; box-shadow: none; }
+.af-btn:disabled { box-shadow: none; }
+.af-btn.danger { color: var(--af-danger); }
+.af-btn.small { min-height: var(--af-control-sm); padding: 0 6px; border-radius: var(--af-radius-control); font-size: 12px; }
+.af-btn.action { min-height: 32px; padding: 5px 12px; }
+.af-btn.icon { width: 28px; min-height: 28px; padding: 3px; border-radius: var(--af-radius-control); }
+.af-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+.af-field { display: block; width: 100%; height: var(--af-field-height); padding: 0 10px; border: 1px solid var(--af-input-line); border-radius: var(--af-radius-control); background: var(--af-surface); box-shadow: var(--af-shadow-field); color: var(--af-ink); font-size: var(--af-ui-size); font-weight: 400; line-height: 20px; transition: background var(--af-fast), border-color var(--af-fast), box-shadow var(--af-fast); }
+.af-field::placeholder { color: var(--af-faint); }
+.af-field:hover:not(:disabled):not(:focus):not([aria-invalid=true]) { background: var(--af-surface); border-color: rgb(26 28 30 / 24%); }
+.af-field:focus { background: var(--af-surface); outline: none; border-color: var(--af-blue); box-shadow: var(--af-shadow-field), 0 0 0 2px var(--af-blue-soft); }
+.af-field[aria-invalid=true] { border-color: rgb(193 63 63 / 55%); background: #fffdfd; }
+.af-field[aria-invalid=true]:focus { box-shadow: var(--af-shadow-field), 0 0 0 2px rgb(193 63 63 / 6%); }
+.af-field.large { height: var(--af-field-height); }
+textarea.af-field { height: auto; min-height: 80px; padding-block: 8px; resize: vertical; font-size: var(--af-ui-size); line-height: 1.6; }
+.af-label { display: grid; gap: 6px; color: var(--af-text); font-size: 12px; font-weight: 500; line-height: 18px; }
+.af-help { margin: 0; color: var(--af-muted); font-size: 12px; }
+.af-error { color: var(--af-danger); font-size: 11px; line-height: 16px; }
+.af-switch { appearance: none; width: 30px; height: 18px; border: none; border-radius: 999px; background: rgb(26 28 30 / 18%); box-shadow: inset 0 1px 2px rgb(26 28 30 / 14%), 0 1px 0 #fff; position: relative; cursor: pointer; transition: background var(--af-fast); flex: 0 0 auto; }
+.af-switch::before { content: ''; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: #fff; box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgb(26 28 30 / 24%), 0 0 0 .5px rgb(26 28 30 / 5%); transition: transform var(--af-fast) var(--af-ease); }
+.af-switch:checked { background: var(--af-fill-primary) var(--af-blue); }
+.af-switch:checked::before { transform: translateX(12px); }
+.af-check { accent-color: var(--af-blue); width: 15px; height: 15px; }
+.af-badge { display: inline-flex; align-items: center; gap: 5px; border-radius: 5px; background: var(--af-selected); color: var(--af-muted); padding: 0 6px; font-size: 11px; line-height: 18px; white-space: nowrap; }
+.af-badge.success { color: var(--af-success); background: #2575480d; }
+.af-badge.warning { color: var(--af-warning); background: #9565160d; }
+.af-badge.info { color: var(--af-blue); background: var(--af-blue-soft); }
+.af-menu { padding: 4px; background: rgb(255 255 255 / 96%); border: 1px solid var(--af-line); border-radius: 10px; box-shadow: inset 0 1px 0 #fff, 0 0 0 .5px rgb(255 255 255 / 80%), var(--af-shadow-menu); backdrop-filter: saturate(1.5) blur(32px); }
+.af-menu button { display: flex; width: 100%; min-height: 32px; justify-content: space-between; align-items: center; border: 0; border-radius: 5px; padding: 4px 8px; background: transparent; color: var(--af-text); font-size: 13px; text-align: left; }
+.af-menu button:hover, .af-menu button:focus-visible { background: var(--af-selected); }
+.af-menu hr { border: 0; border-top: 1px solid var(--af-line); margin: 5px; }
+dialog { color: var(--af-text); background: var(--af-surface); border: 1px solid var(--af-line); border-radius: var(--af-radius-xl); padding: 16px; width: min(380px, calc(100% - 32px)); box-shadow: inset 0 1px 0 #fff, 0 0 0 .5px rgb(26 28 30 / 9%), var(--af-shadow-dialog); backdrop-filter: saturate(1.3) blur(24px); }
+dialog::backdrop { background: rgb(26 28 30 / 18%); }
+dialog[open] { animation: af-appear var(--af-enter) var(--af-ease); }
+@keyframes af-appear { from { opacity: 0; transform: translateY(4px) scale(.99); } to { opacity: 1; transform: none; } }
+@media (pointer: coarse) { .af-btn, .af-btn.small, .af-btn.action, .af-btn.icon { min-height: 44px; } .af-btn.icon { width: 44px; } .af-field, .af-field.large { height: 44px; font-size: 16px; } textarea.af-field { height: auto; font-size: 16px; } .af-menu button { min-height: 44px; } label.row { min-height: 44px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+@media (forced-colors: active) { .af-switch { appearance: auto; } .af-switch::before { display: none; } }
+
+/* All preview selects share one trigger and a viewport-positioned menu. */
+.af-select-trigger { background-image: var(--af-fill-control); box-shadow: var(--af-shadow-control); display: flex; align-items: center; justify-content: space-between; gap: 8px; text-align: left; cursor: pointer; }
+.af-select-trigger [data-selected-value] { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.select-chevron { width: 16px; height: 16px; flex-shrink: 0; color: var(--af-muted); transition: transform var(--af-fast) var(--af-ease); }
+.af-select-trigger[aria-expanded=true] .select-chevron { transform: rotate(180deg); }
+.af-select-trigger[aria-expanded=true] { border-color: var(--af-input-line); background: var(--af-surface); }
+.af-select-trigger:focus-visible { border-color: var(--af-blue); box-shadow: var(--af-shadow-field), 0 0 0 2px var(--af-blue-soft); }
+.af-menu [role=option] { gap: 12px; line-height: 20px; }
+.af-menu [role=option]:focus-visible { outline: none; background: var(--af-selected); }
+.af-menu [role=option][aria-selected=true] { background: var(--af-hover); }
+.af-menu [role=option]:hover { background: var(--af-selected); }
+.select-check { width: 16px; height: 16px; flex-shrink: 0; visibility: hidden; color: var(--af-ink); }
+[aria-selected=true] > .select-check { visibility: visible; }
+@media (forced-colors: active) { .af-select-trigger { border-color: ButtonText; } .af-menu { border: 1px solid ButtonText; } .af-menu [role=option]:focus-visible { outline: 1px solid Highlight; outline-offset: -2px; } }
+.af-menu [role=option][aria-selected=true]:is(:focus-visible, :hover) { background: var(--af-selected); }
+
+/* Same checkbox / radio geometry across tables, forms and business settings. */
+.af-check,input[type=radio]{appearance:none;display:inline-grid;place-content:center;width:15px;height:15px;flex:0 0 15px;vertical-align:middle;margin:0;border:1px solid rgb(26 28 30 / 38%);border-radius:4px;background:var(--af-surface);cursor:pointer;transition:background var(--af-fast),border-color var(--af-fast),box-shadow var(--af-fast)}
+.af-check:checked,.af-check:indeterminate{background:var(--af-fill-primary) var(--af-blue);border-color:var(--af-blue);box-shadow:inset 0 1px 0 rgb(255 255 255 / 23%),0 1px 1px rgb(26 28 30 / 8%)}
+input[type=checkbox].af-check:checked::after{content:'';width:7px;height:4px;border-left:1.5px solid white;border-bottom:1.5px solid white;transform:translateY(-1px) rotate(-45deg)}
+input[type=checkbox].af-check:indeterminate::after{content:'';width:7px;height:1.5px;background:white;border:0;transform:none}
+input[type=radio]{border-radius:50%}
+input[type=radio]:checked{background:var(--af-blue);border-color:var(--af-blue);box-shadow:inset 0 0 0 3px var(--af-surface)}
+.af-check:hover:not(:disabled),input[type=radio]:hover:not(:disabled){border-color:var(--af-blue)}
+.af-check:disabled,input[type=radio]:disabled{cursor:not-allowed}
+.af-check:disabled:not(:checked):not(:indeterminate),input[type=radio]:disabled:not(:checked){background:var(--af-selected)}
+@media(forced-colors:active){.af-check,input[type=radio]{appearance:auto}.af-check::after{display:none}}
